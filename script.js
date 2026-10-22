@@ -354,24 +354,40 @@
     cp.onclick = function () { copyText(url).then(function (ok) { if (ok) flash(cp, 'Link copied'); }); }; menu.appendChild(cp);
     btn.addEventListener('click', function () { menu.hidden = !menu.hidden; btn.setAttribute('aria-expanded', String(!menu.hidden)); });
   })();
-  /* ================= BASIC SOURCE-ACCESS DETERRENTS ================= */
-  // This can block the page context menu, but cannot guarantee that browser
-  // developer tools or source files are inaccessible.
-  document.addEventListener('contextmenu', function (event) {
-    event.preventDefault();
-  }, true);
+  
+/* Disable right-click */
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
 
-  document.addEventListener('keydown', function (event) {
-    var key = String(event.key || '').toLowerCase();
-    var blocked = key === 'f12' ||
-      (event.ctrlKey && key === 'u') ||
-      (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].indexOf(key) !== -1) ||
-      (event.metaKey && event.altKey && ['i', 'j', 'c'].indexOf(key) !== -1);
+/* Block common inspection shortcuts */
+document.addEventListener("keydown", function (e) {
+  const key = e.key.toLowerCase();
 
-    if (blocked) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-    }
-  }, true);
-})();
+  if (
+    key === "f12" ||
+    (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) ||
+    (e.ctrlKey && key === "u") ||
+    (e.metaKey && e.altKey && ["i", "j", "c"].includes(key)) ||
+    (e.metaKey && key === "u")
+  ) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+}, true);
+
+/* Disable text selection */
+document.addEventListener("selectstart", function (e) {
+  if (!["INPUT", "TEXTAREA"].includes(e.target.tagName)) {
+    e.preventDefault();
+  }
+});
+
+/* Disable dragging images */
+document.addEventListener("dragstart", function (e) {
+  if (e.target.tagName === "IMG") {
+    e.preventDefault();
+  }
+});
+
 
