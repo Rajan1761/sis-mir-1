@@ -1,4 +1,4 @@
-(function (){
+(function () {
   'use strict';
 
   /* ================= CONFIG (edit here) ================= */
@@ -16,7 +16,7 @@
     // RSVP delivery (optional). Use ONE of these; if both are empty the form says nothing was sent.
     rsvpEndpoint: '',   // e.g. 'https://formspree.io/f/xxxxxxx'
     rsvpWhatsapp: '',   // digits only with country code, e.g. '919876543210'
-    musicUrl:'Saarattu Vandiyila Karaoke - Kaatru Veliyidai karaoke.mp3'        // optional licensed mp3, e.g. 'audio/music.mp3'. Empty = built-in soft synth music
+    musicUrl: ''        // optional licensed mp3, e.g. 'audio/music.mp3'. Empty = built-in soft synth music
   };
 
   var NS = 'http://www.w3.org/2000/svg';
@@ -354,4 +354,4 @@
     cp.onclick = function () { copyText(url).then(function (ok) { if (ok) flash(cp, 'Link copied'); }); }; menu.appendChild(cp);
     btn.addEventListener('click', function () { menu.hidden = !menu.hidden; btn.setAttribute('aria-expanded', String(!menu.hidden)); });
   })();
-  
+})();
