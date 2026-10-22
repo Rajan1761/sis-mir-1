@@ -16,7 +16,7 @@
     // RSVP delivery (optional). Use ONE of these; if both are empty the form says nothing was sent.
     rsvpEndpoint: '',   // e.g. 'https://formspree.io/f/xxxxxxx'
     rsvpWhatsapp: '',   // digits only with country code, e.g. '919876543210'
-    musicUrl:'Saarattu-Vandiyila.mp3'        // optional licensed mp3, e.g. 'audio/music.mp3'. Empty = built-in soft synth music
+    musicUrl:'sis-mir-1/Saarattu-Vandiyila.mp3'        // optional licensed mp3, e.g. 'audio/music.mp3'. Empty = built-in soft synth music
   };
 
   var NS = 'http://www.w3.org/2000/svg';
