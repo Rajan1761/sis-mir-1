@@ -355,39 +355,3 @@
     btn.addEventListener('click', function () { menu.hidden = !menu.hidden; btn.setAttribute('aria-expanded', String(!menu.hidden)); });
   })();
   
-/* Disable right-click */
-document.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-});
-
-/* Block common inspection shortcuts */
-document.addEventListener("keydown", function (e) {
-  const key = e.key.toLowerCase();
-
-  if (
-    key === "f12" ||
-    (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) ||
-    (e.ctrlKey && key === "u") ||
-    (e.metaKey && e.altKey && ["i", "j", "c"].includes(key)) ||
-    (e.metaKey && key === "u")
-  ) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-}, true);
-
-/* Disable text selection */
-document.addEventListener("selectstart", function (e) {
-  if (!["INPUT", "TEXTAREA"].includes(e.target.tagName)) {
-    e.preventDefault();
-  }
-});
-
-/* Disable dragging images */
-document.addEventListener("dragstart", function (e) {
-  if (e.target.tagName === "IMG") {
-    e.preventDefault();
-  }
-});
-
-
