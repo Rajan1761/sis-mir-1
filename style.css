@@ -558,6 +558,21 @@ input:not([type=radio]),select,textarea{width:100%;padding:.75rem 1rem;font:inhe
   }
 }
 
+/* Restrict text selection */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Keep form fields usable */
+input,
+textarea,
+select {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
