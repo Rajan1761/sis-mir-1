@@ -355,43 +355,6 @@
     btn.addEventListener('click', function () { menu.hidden = !menu.hidden; btn.setAttribute('aria-expanded', String(!menu.hidden)); });
   })();
   
-})
-  /* =====================================
-   BASIC WEBSITE INSPECTION RESTRICTION
-===================================== */
-
-// Disable right-click context menu
-document.addEventListener("contextmenu", function (event) {
-  event.preventDefault();
-});
-
-// Block common developer-tool shortcuts
-document.addEventListener("keydown", function (event) {
-  const key = event.key.toLowerCase();
-
-  // F12
-  if (key === "f12") {
-    event.preventDefault();
-    event.stopPropagation();
-    return;
-  }
-
-  // Ctrl+Shift+I / J / C
-  if (
-    event.ctrlKey &&
-    event.shiftKey &&
-    ["i", "j", "c"].includes(key)
-  ) {
-    event.preventDefault();
-    event.stopPropagation();
-    return;
-  }
-
-  // Ctrl+U: View source
-  if (event.ctrlKey && key === "u") {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-}); ();
+})();
 
 
