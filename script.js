@@ -1,5 +1,5 @@
-(function () 
- /* Disable right-click */
+(function (){
+  /* Disable right-click */
 document.addEventListener("contextmenu", function (e) {
   e.preventDefault();
 });
@@ -20,7 +20,6 @@ document.addEventListener("keydown", function (e) {
 }, true);
 
 /* Existing wedding website code starts below */
-{
   'use strict';
 
   /* ================= CONFIG (edit here) ================= */
