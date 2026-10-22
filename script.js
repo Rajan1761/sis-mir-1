@@ -1,25 +1,4 @@
 (function (){
-  /* Disable right-click */
-document.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-});
-
-/* Block common keyboard shortcuts */
-document.addEventListener("keydown", function (e) {
-  const key = e.key.toLowerCase();
-
-  if (
-    key === "f12" ||
-    (e.ctrlKey && e.shiftKey &&
-      ["i", "j", "c"].includes(key)) ||
-    (e.ctrlKey && key === "u")
-  ) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-}, true);
-
-/* Existing wedding website code starts below */
   'use strict';
 
   /* ================= CONFIG (edit here) ================= */
