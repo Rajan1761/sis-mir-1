@@ -355,9 +355,8 @@
     btn.addEventListener('click', function () { menu.hidden = !menu.hidden; btn.setAttribute('aria-expanded', String(!menu.hidden)); });
   })();
   
-})();
-
-/* =====================================
+})
+  /* =====================================
    BASIC WEBSITE INSPECTION RESTRICTION
 ===================================== */
 
@@ -393,4 +392,6 @@ document.addEventListener("keydown", function (event) {
     event.preventDefault();
     event.stopPropagation();
   }
-});
+}); ();
+
+
