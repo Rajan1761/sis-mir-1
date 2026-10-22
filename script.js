@@ -354,7 +354,24 @@
     cp.onclick = function () { copyText(url).then(function (ok) { if (ok) flash(cp, 'Link copied'); }); }; menu.appendChild(cp);
     btn.addEventListener('click', function () { menu.hidden = !menu.hidden; btn.setAttribute('aria-expanded', String(!menu.hidden)); });
   })();
-  
-})();
+  /* ================= BASIC SOURCE-ACCESS DETERRENTS ================= */
+  // This can block the page context menu, but cannot guarantee that browser
+  // developer tools or source files are inaccessible.
+  document.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+  }, true);
 
+  document.addEventListener('keydown', function (event) {
+    var key = String(event.key || '').toLowerCase();
+    var blocked = key === 'f12' ||
+      (event.ctrlKey && key === 'u') ||
+      (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].indexOf(key) !== -1) ||
+      (event.metaKey && event.altKey && ['i', 'j', 'c'].indexOf(key) !== -1);
+
+    if (blocked) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
+  }, true);
+})();
 
